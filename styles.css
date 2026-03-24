@@ -1,0 +1,275 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #1f2937;
+  background: #f3f4f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.hero {
+  background: linear-gradient(120deg, #0f172a, #1d4ed8);
+  color: #fff;
+  padding: 1.2rem 1rem;
+}
+
+.brand {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-logo {
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.35);
+}
+
+main {
+  max-width: 1100px;
+  margin: 1.2rem auto 2rem;
+  padding: 0 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.15rem;
+  box-shadow: 0 8px 25px rgba(2, 6, 23, 0.08);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+input,
+textarea,
+select,
+button {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.danger {
+  background: #dc2626;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.order-ticket {
+  border: 1px solid #bfdbfe;
+  background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+  border-radius: 14px;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+.ticket-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #dbeafe;
+  padding-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.ticket-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ticket-brand img {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+}
+
+.ticket-brand h3 {
+  margin: 0;
+  color: #1e3a8a;
+}
+
+.ticket-brand p,
+.ticket-brand small {
+  margin: 0;
+  display: block;
+}
+
+.ticket-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.status-chip {
+  background: #dbeafe;
+  color: #1e3a8a;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-weight: 700;
+}
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.ticket-grid section,
+.ticket-details {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+}
+
+.ticket-grid h4,
+.ticket-details h4 {
+  margin: 0 0 0.35rem;
+  color: #1d4ed8;
+}
+
+.ticket-grid dl,
+.ticket-details dl {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0.25rem 0.5rem;
+  margin: 0;
+}
+
+.ticket-grid dt,
+.ticket-details dt {
+  font-weight: 700;
+}
+
+.ticket-footer {
+  margin-top: 0.8rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed #bfdbfe;
+  font-size: 0.85rem;
+}
+
+.ticket-footer p {
+  margin: 0.15rem 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  padding: 0.55rem;
+  font-size: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status-select {
+  min-width: 170px;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 700px) {
+  .brand {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .brand-logo {
+    width: 58px;
+    height: 58px;
+  }
+
+  .ticket-meta {
+    align-items: flex-start;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #generatedOrderSection,
+  #generatedOrderSection * {
+    visibility: visible;
+  }
+
+  #generatedOrderSection {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  #printOrderBtn {
+    display: none;
+  }
+}

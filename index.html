@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TomFix | Órdenes de Servicio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="brand">
+        <img src="logo.png" alt="Logo de TomFix" class="brand-logo" />
+        <div>
+          <h1>TomFix</h1>
+          <p>Gestor de órdenes de servicio técnico para celulares</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Nueva orden de servicio</h2>
+        <form id="orderForm" class="grid">
+          <label>
+            Nombre del cliente
+            <input name="customerName" required />
+          </label>
+          <label>
+            Teléfono del cliente
+            <input name="customerPhone" required />
+          </label>
+          <label>
+            Modelo del equipo
+            <input name="deviceModel" required />
+          </label>
+          <label>
+            IMEI / Serie
+            <input name="deviceImei" />
+          </label>
+          <label class="full">
+            Falla reportada por el cliente
+            <textarea name="reportedIssue" rows="2" required></textarea>
+          </label>
+          <label class="full">
+            Diagnóstico técnico
+            <textarea name="diagnosis" rows="2"></textarea>
+          </label>
+          <label>
+            Costo
+            <input name="estimatedCost" type="number" min="0" step="0.01" />
+          </label>
+          <label>
+            Anticipo
+            <input name="advancePayment" type="number" min="0" step="0.01" />
+          </label>
+          <label class="full">
+            Observaciones
+            <textarea name="notes" rows="2"></textarea>
+          </label>
+          <button type="submit">Generar orden</button>
+        </form>
+      </section>
+
+      <section class="card" id="generatedOrderSection" hidden>
+        <div class="order-header">
+          <h2>Orden generada</h2>
+          <button id="printOrderBtn" type="button">Imprimir / Guardar PDF</button>
+        </div>
+        <article id="generatedOrder"></article>
+      </section>
+
+      <section class="card">
+        <div class="order-header">
+          <h2>Historial de órdenes</h2>
+          <div class="actions">
+            <button id="exportExcelBtn" type="button">Exportar a Excel</button>
+            <button id="clearOrdersBtn" type="button" class="danger">Limpiar historial</button>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Orden</th>
+                <th>Cliente</th>
+                <th>Teléfono</th>
+                <th>Equipo</th>
+                <th>Falla</th>
+                <th>Estado</th>
+                <th>Costo</th>
+                <th>Fecha</th>
+                <th>Actualizar estado</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
